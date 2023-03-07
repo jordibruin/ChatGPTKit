@@ -28,7 +28,7 @@ public struct ChatGPTKit {
             "temperature": temperature,
             "top_p": topP,
             "n": numberOfCompletions,
-            "pAPresence_penalty": presencePenalty,
+            "presence_penalty": presencePenalty,
             "frequency_penalty": frequencePenalty
         ]
         
