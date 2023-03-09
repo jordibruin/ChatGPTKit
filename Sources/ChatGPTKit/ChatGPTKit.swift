@@ -36,6 +36,7 @@ public struct ChatGPTKit {
         case .success(let baseRequest):
             do {
                 let (data, _) = try await URLSession.shared.data(for: baseRequest)
+                print(String(data: data, encoding: .utf8)!)
                 do {
                     let response = try JSONDecoder().decode(Response.self, from: data)
                     return .success(response)
