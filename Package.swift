@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "ChatGPTKit",
     platforms: [
-        .macOS(.v13),
+        .macOS(.v12),
         .iOS(.v13),
         .watchOS(.v9),
         .tvOS(.v16)
