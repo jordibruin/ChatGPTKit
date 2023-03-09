@@ -8,12 +8,12 @@
 import Foundation
 
 public struct APIError: Error {
-    public var code: Int?
+    public var code: String?
     public var message: String
     public var type: String?
     public var error: Error?
     
-    public init(code: Int? = nil, message: String, type: String? = nil, error: Error? = nil) {
+    public init(code: String? = nil, message: String, type: String? = nil, error: Error? = nil) {
         self.code = code
         self.message = message
         self.type = type
@@ -34,7 +34,7 @@ extension APIError: Decodable {
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        code = try container.decode(Int?.self, forKey: .code)
+        code = try container.decode(String?.self, forKey: .code)
         message = try container.decode(String.self, forKey: .message)
         type = try container.decode(String?.self, forKey: .type)
     }
