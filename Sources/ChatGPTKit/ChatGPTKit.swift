@@ -10,6 +10,7 @@ public struct ChatGPTKit {
     // MARK: Completion Endpoint
     public func performCompletions(
         model: Model = .turbo,
+        systemMessage: Message,
         messages: [Message] = [],
         temperature: Double = 1.0,
         topP: Double = 1.0,
@@ -17,8 +18,19 @@ public struct ChatGPTKit {
         presencePenalty: Double = 0,
         frequencePenalty: Double = 0
     ) async throws -> Result<Response, APIError> {
+        
+        
         var convertedMessages = [[String:Any]]()
-        for message in messages {
+        
+        var tempMessages = messages
+        print(messages.contentCount)
+        
+        while tempMessages.contentCount > 3700 {
+            tempMessages = tempMessages.suffix(tempMessages.count - 1)
+        }
+        
+        convertedMessages.append(systemMessage.convertToDict())
+        for message in tempMessages {
             convertedMessages.append(message.convertToDict())
         }
         
