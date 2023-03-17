@@ -12,4 +12,5 @@ public enum Model: String {
     // Base
     case turbo = "gpt-3.5-turbo"
     case turbo31 = "gpt-3.5-turbo-0301"
+    case gpt4 = "gpt-4"
 }
