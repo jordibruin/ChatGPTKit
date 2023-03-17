@@ -8,7 +8,7 @@
 import Foundation
 
 // Enums
-public enum Model: String {
+public enum Model: String, CaseIterable {
     // Base
     case turbo = "gpt-3.5-turbo"
     case turbo31 = "gpt-3.5-turbo-0301"
