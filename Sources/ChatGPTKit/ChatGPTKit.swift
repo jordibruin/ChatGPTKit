@@ -117,7 +117,7 @@ public struct ChatGPTKit {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpMethod = "POST"
             request.httpBody = bodyData
-            request.timeoutInterval = 30
+            request.timeoutInterval = 90
             return .success(request)
         } catch {
             return .failure(
